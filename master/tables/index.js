@@ -50684,8 +50684,6 @@ var ReportApplicationFunctionalFit = (function() {
                                 market : market,
                                 projectId : bcs.length ? bcs[z].id : '',
                                 businessCapability : bcs.length ? bcs[z].fullName : '',
-                                lifecyclePhase : currentLifecycle ? currentLifecycle.phase : '',
-                                lifecycleStart : currentLifecycle ? currentLifecycle.startDate : ''
                             });
                         }
                     }
