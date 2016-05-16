@@ -50636,28 +50636,9 @@ var ReportApplicationFunctionalFit = (function() {
                 };
 
                 var output = [];
-                var markets = {};
-                var projectEffects = {};
-                var projectTypes = {};
-
-                var costCentres = ['IT', 'Network', 'Remedy', 'Marketing'];
-                var appTypes = ['Group owned - locally used', 'Locally owned'];
+                var weights = {};
                 for (var i = 0; i < list.length; i++) {
                     if (!that.tagFilter || list[i].tags.indexOf(that.tagFilter) != -1)  {
-
-                        // Extract market
-                        var re = /^([A-Z]{2,3})_/;
-                        var market = '';
-
-                        if ((m = re.exec(list[i].fullName)) !== null) {
-                            if (m.index === re.lastIndex) {
-                                re.lastIndex++;
-                            }
-                            // View your result using the m-variable.
-                            market = m[1];
-                            if (market)
-                                markets[market] = market;
-                        }
 
                         var bcs = [];
                         for (var z = 0; z < list[i].serviceHasBusinessCapabilities.length; z++) {
