@@ -50600,41 +50600,6 @@ var ReportApplicationFunctionalFit = (function() {
 
                 var list = fsIndex.getSortedList('services');
 
-                function formattedDate(date) {
-                    var d = new Date(date || Date.now()),
-                        month = '' + (d.getMonth() + 1),
-                        day = '' + d.getDate(),
-                        year = d.getFullYear();
-
-                    if (month.length < 2) month = '0' + month;
-                    if (day.length < 2) day = '0' + day;
-
-                    return [month, day, year].join('/');
-                }
-
-                var getTagFromGroup = function(object, validTags) {
-                    var cc = object.tags.filter(function(x) {
-                        if (validTags.indexOf(x) >= 0)
-                            return true;
-                        else
-                            return false;
-                    });
-
-                    if (cc.length)
-                        return cc[0];
-
-                    return '';
-                };
-
-                var getLookup = function(data) {
-                    var ret = {};
-                    for (var i = 0; i < data.length; i++) {
-                        ret[data[i]] = data[i];
-                    }
-
-                    return ret;
-                };
-
                 var output = [];
                 var weights = {};
                 for (var i = 0; i < list.length; i++) {
@@ -50673,7 +50638,7 @@ var ReportApplicationFunctionalFit = (function() {
                 }
 
                 function linkBusinessCapability(cell, row) {
-                    if (row.businessCapabilityId)
+                    if (row.businessCapabilityID)
                         return '<a href="' + that.reportSetup.baseUrl + '/businessCapabilities/' + row.businessCapabilityId + '" target="_blank">' + cell + '</a>';
                 }
 
