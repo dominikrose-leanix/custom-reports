@@ -50648,7 +50648,7 @@ var ReportApplicationFunctionalFit = (function() {
                             React.createElement(TableHeaderColumn, {dataField: "id", isKey: true, hidden: true}, "ID"), 
                             React.createElement(TableHeaderColumn, {dataField: "businessCapability", dataAlign: "left", dataSort: true, dataFormat: linkBusinessCapability, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Business Capability"), 
                             React.createElement(TableHeaderColumn, {dataField: "name", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Use Case"), 
-                            React.createElement(TableHeaderColumn, {dataField: "weight", width: "100", dataAlign: "left", dataSort: true, filter: {type: "NumberFilter", defaultValue: {comparator: '<='}}}, "Weight")
+                            React.createElement(TableHeaderColumn, {dataField: "weight", dataAlign: "left", dataSort: true, filter: {type: "NumberFilter", defaultValue: {comparator: '<='}}}, "Weight")
                            )
                     ),
                     document.getElementById("app")
