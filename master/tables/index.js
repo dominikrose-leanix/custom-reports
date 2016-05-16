@@ -50639,7 +50639,7 @@ var ReportApplicationFunctionalFit = (function() {
 
                 function linkBusinessCapability(cell, row) {
                     if (row.businessCapabilityID)
-                        return '<a href="' + that.reportSetup.baseUrl + '/businessCapabilities/' + row.businessCapabilityId + '" target="_blank">' + cell + '</a>';
+                        return '<a href="' + that.reportSetup.baseUrl + '/businessCapabilities/' + row.businessCapabilityID + '" target="_blank">' + cell + '</a>';
                 }
 
                 ReactDOM.render(
