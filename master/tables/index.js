@@ -50588,7 +50588,7 @@ var ReportApplicationFunctionalFit = (function() {
     ReportApplicationFunctionalFit.prototype.render = function() {
         var that = this;
 
-        var factSheetPromise = $.get(this.reportSetup.apiBaseUrl + '/factsheets?relations=true&types[]=10&types[]=16&pageSize=-1')
+        var factSheetPromise = $.get(this.reportSetup.apiBaseUrl + '/factsheets?relations=true&types[]=10&types[]=18&pageSize=-1')
             .then(function (response) {
                 return response.data;
             });
