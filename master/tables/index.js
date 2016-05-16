@@ -50667,9 +50667,8 @@ var ReportApplicationFunctionalFit = (function() {
 
                                     bcs.push({
                                         id: tmp.businessCapabilityID,
-                                        name: fsIndex.index.businessCapabilities[tmp.businessCapabilityID].fullName,
-                                        effect: tmp.comment,
-                                        //type: getTagFromGroup(fsIndex.index.projects[tmp.projectID], ['Transformation', 'Legacy'])
+                                        name: fsIndex.index.businessCapabilities[tmp.businessCapabilityID].displayName,
+                                        weight: tmp.functionalSuitabilityID,
                                     })
                                 }
                             }
@@ -50679,11 +50678,9 @@ var ReportApplicationFunctionalFit = (function() {
                             output.push({
                                 name : list[i].fullName,
                                 id : list[i].ID,
-                                costCentre : getTagFromGroup(list[i], costCentres),
-                                appType : getTagFromGroup(list[i], appTypes),
-                                market : market,
-                                projectId : bcs.length ? bcs[z].id : '',
-                                businessCapability : bcs.length ? bcs[z].fullName : '',
+                                businessCapability : bcs.length ? bcs[z].name : '',
+                                businessCapabilityID : bcs.length ? bcs[z].id : '',
+                                weight : bcs.length ? bcs[z].weight : '',
                             });
                         }
                     }
@@ -50694,22 +50691,18 @@ var ReportApplicationFunctionalFit = (function() {
                     return '<a href="' + that.reportSetup.baseUrl + '/services/' + row.id + '" target="_blank">' + cell + '</a>';
                 }
 
-                function linkProject(cell, row) {
-                    if (row.projectId)
-                        return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.projectId + '" target="_blank">' + cell + '</a>';
+                function linkBusinessCapability(cell, row) {
+                    if (row.businessCapabilityId)
+                        return '<a href="' + that.reportSetup.baseUrl + '/businessCapabilities/' + row.businessCapabilityId + '" target="_blank">' + cell + '</a>';
                 }
 
                 ReactDOM.render(
                     React.createElement("div", null, 
                         React.createElement(BootstrapTable, {data: output, striped: true, hover: true, search: true, exportCSV: true}, 
                             React.createElement(TableHeaderColumn, {dataField: "id", isKey: true, hidden: true}, "ID"), 
-                            React.createElement(TableHeaderColumn, {dataField: "businessCapability", dataAlign: "left", dataSort: true, dataFormat: linkProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Business Capability"), 
-                            React.createElement(TableHeaderColumn, {dataField: "name", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Application Name"), 
-                            React.createElement(TableHeaderColumn, {dataField: "costCentre", width: "120", dataAlign: "left", dataSort: true, filter: {type: "SelectFilter", options: getLookup(costCentres)}}, "Cost Centre"), 
-                            React.createElement(TableHeaderColumn, {dataField: "appType", width: "100", dataAlign: "left", dataSort: true, filter: {type: "SelectFilter", options: getLookup(appTypes)}}, "App Type"), 
-                            React.createElement(TableHeaderColumn, {dataField: "projectName", dataAlign: "left", dataSort: true, dataFormat: linkProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Project Name"), 
-                            React.createElement(TableHeaderColumn, {dataField: "projectEffect", width: "100", dataAlign: "left", dataSort: true, filter: {type: "SelectFilter", options: projectEffects}}, "Project Effect"), 
-                            React.createElement(TableHeaderColumn, {dataField: "projectType", width: "100", dataAlign: "left", dataSort: true, filter: {type: "SelectFilter", options: projectTypes}}, "Project Type")
+                            React.createElement(TableHeaderColumn, {dataField: "businessCapability", dataAlign: "left", dataSort: true, dataFormat: linkBusinessCapability, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Business Capability"), 
+                            React.createElement(TableHeaderColumn, {dataField: "name", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Use Case"), 
+                            React.createElement(TableHeaderColumn, {dataField: "weight", width: "100", dataAlign: "left", dataSort: true, filter: {type: "SelectFilter", options: weights}}, "Weight")
                         )
                     ),
                     document.getElementById("app")
