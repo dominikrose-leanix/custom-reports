@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leanix/leanix-custom-reports.git"
+    "url": "git+https://github.com/dominikrose-leanix/custom-reports.git"
   },
   "keywords": [
     "leanix",
@@ -21,9 +21,9 @@
   "author": "leanIX GmbH",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leanix/leanix-custom-reports/issues"
+    "url": "https://github.com/dominikrose-leanix/custom-reports/issues"
   },
-  "homepage": "https://github.com/leanix/leanix-custom-reports#readme",
+  "homepage": "https://github.com/dominikrose-leanix/custom-reports#readme",
   "devDependencies": {
   }
 }
