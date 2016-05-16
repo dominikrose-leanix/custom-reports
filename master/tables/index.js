@@ -50578,7 +50578,7 @@ var ReportApplicationLifecycle = (function() {
 
     return ReportApplicationLifecycle;
 })();
-var ReportApplicationFuntionalFit = (function() {
+var ReportApplicationFunctionalFit = (function() {
     function ReportApplicationFunctionalFit(reportSetup, tagFilter, title) {
         this.reportSetup = reportSetup;
         this.tagFilter = tagFilter;
