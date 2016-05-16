@@ -50589,6 +50589,9 @@ var ReportApplicationLifecycle = (function() {
         case 'app-lifecycle':
             var report = new ReportApplicationLifecycle(reportSetup);
             break;
+        case 'app-functional-fit':
+            var report = new ReportApplicationFunctionalFit(reportSetup);
+            break;
         case 'process-spend':
             var report = new ReportProcessSpend(reportSetup);
             break;
