@@ -50645,8 +50645,6 @@ var ReportApplicationFunctionalFit = (function() {
                 for (var i = 0; i < list.length; i++) {
                     if (!that.tagFilter || list[i].tags.indexOf(that.tagFilter) != -1)  {
 
-                        var currentLifecycle = getCurrentLifecycle(list[i]);
-
                         // Extract market
                         var re = /^([A-Z]{2,3})_/;
                         var market = '';
