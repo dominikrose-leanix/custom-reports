@@ -18,4 +18,5 @@ mv -f dist $branch
 git rm -rf --ignore-unmatch dist
 git add $branch
 git describe --always | git commit -m "Publish new $branch version"
+git push
 git checkout $branch
