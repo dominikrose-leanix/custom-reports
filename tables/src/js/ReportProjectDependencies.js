@@ -1,11 +1,11 @@
-var ReportApplicationFunctionalFit = (function() {
-    function ReportApplicationFunctionalFit(reportSetup, tagFilter, title) {
+var ReportProjectDependencies = (function() {
+    function ReportProjectDependencies(reportSetup, tagFilter, title) {
         this.reportSetup = reportSetup;
         this.tagFilter = tagFilter;
         this.title = title;
     }
 
-    ReportApplicationFunctionalFit.prototype.render = function() {
+    ReportProjectDependencies.prototype.render = function() {
         var that = this;
 
         var factSheetPromise = $.get(this.reportSetup.apiBaseUrl + '/factsheets?relations=true&types[]=10&types[]=16&types[]=19&pageSize=-1')
@@ -73,5 +73,5 @@ var ReportApplicationFunctionalFit = (function() {
             });
     };
 
-    return ReportApplicationFunctionalFit;
+    return ReportProjectDependencies;
 })();
