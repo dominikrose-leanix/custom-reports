@@ -53,21 +53,29 @@ var ReportProjectDependencies = (function() {
 
 
                 function link(cell, row) {
-                    return '<a href="' + that.reportSetup.baseUrl + '/services/' + row.id + '" target="_blank">' + cell + '</a>';
+                    if (row.projectID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.projectID + '" target="_blank">' + cell + '</a>';
+                    if (row.resourceID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/resources/' + row.resourceID + '" target="_blank">' + cell + '</a>';
+                    if (row.serviceID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/services/' + row.serviceID + '" target="_blank">' + cell + '</a>';
+                    return cell;
                 }
 
-                function linkBusinessCapability(cell, row) {
-                    if (row.businessCapabilityID)
-                        return '<a href="' + that.reportSetup.baseUrl + '/businessCapabilities/' + row.businessCapabilityID + '" target="_blank">' + cell + '</a>';
+                function linkDependentProject(cell, row) {
+                    if (row.dependentProjectID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.dependentProjectID + '" target="_blank">' + cell + '</a>';
+                    return cell;
                 }
 
                 ReactDOM.render(
                     <div>
                         <BootstrapTable data={output} striped={true} hover={true} search={true} exportCSV={true}>
                             <TableHeaderColumn dataField="id" isKey={true} hidden={true}>ID</TableHeaderColumn>
-                            <TableHeaderColumn dataField="project" dataAlign="left" dataSort={true} dataFormat={linkBusinessCapability} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Project</TableHeaderColumn>
-                            <TableHeaderColumn dataField="dependentProject" dataAlign="left" dataSort={true} dataFormat={linkBusinessCapability} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Dependent Project</TableHeaderColumn>
-                            <TableHeaderColumn dataField="resource" dataAlign="left" dataSort={true} dataFormat={linkBusinessCapability} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
+                            <TableHeaderColumn dataField="project" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Project</TableHeaderColumn>
+                            <TableHeaderColumn dataField="dependentProject" dataAlign="left" dataSort={true} dataFormat={linkDependentProject} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Dependent Project</TableHeaderColumn>
+                            <TableHeaderColumn dataField="resource" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
+                            <TableHeaderColumn dataField="service" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
                            </BootstrapTable>
                     </div>,
                     document.getElementById("app")
