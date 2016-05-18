@@ -104,27 +104,3 @@ var ReportProjectDependencies = (function() {
 
     return ReportProjectDependencies;
 })();
-
-                function linkDependentProject(cell, row) {
-                    if (row.dependentProjectID)
-                        return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.dependentProjectID + '" target="_blank">' + cell + '</a>';
-                    return cell;
-                }
-
-                ReactDOM.render(
-                    <div>
-                        <BootstrapTable data={output} striped={true} hover={true} search={true} exportCSV={true}>
-                            <TableHeaderColumn dataField="id" isKey={true} hidden={true}>ID</TableHeaderColumn>
-                            <TableHeaderColumn dataField="project" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Project</TableHeaderColumn>
-                            <TableHeaderColumn dataField="dependentProject" dataAlign="left" dataSort={true} dataFormat={linkDependentProject} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Dependent Project</TableHeaderColumn>
-                            <TableHeaderColumn dataField="resource" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
-                            <TableHeaderColumn dataField="service" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
-                           </BootstrapTable>
-                    </div>,
-                    document.getElementById("app")
-                );
-            });
-    };
-
-    return ReportProjectDependencies;
-})();
