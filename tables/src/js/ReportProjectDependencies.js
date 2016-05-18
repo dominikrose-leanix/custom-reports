@@ -24,7 +24,7 @@ var ReportProjectDependencies = (function() {
                 for (var i = 0; i < list.length; i++) {
                     if (!that.tagFilter || list[i].tags.indexOf(that.tagFilter) != -1)  {
 
-                        var dependentProjects = list[i].factSheetHasPredecessors;
+                        var dependentProjects = list[i].factSheetHasSuccessors;
 
                         for (var j = 0; j < dependentProjects.length; j++) {
                             var tmp = dependentProjects[j];
