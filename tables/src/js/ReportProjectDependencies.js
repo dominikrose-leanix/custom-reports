@@ -24,13 +24,13 @@ var ReportProjectDependencies = (function() {
                 for (var i = 0; i < list.length; i++) {
                     if (!that.tagFilter || list[i].tags.indexOf(that.tagFilter) != -1)  {
 
-                        var dependentProjects = list[i].factSheetHasSuccessors;
+                        var dependentProjects = list[i].factSheetHasPredecessors;
 
                         for (var j = 0; j < dependentProjects.length; j++) {
                             var tmp = dependentProjects[j];
                             if (tmp) {
-                                if (tmp.factSheetRefID && fsIndex.index.projects[tmp.factSheetRefID]) {
-                                   dependentProject = fsIndex.index.projects[tmp.factSheetRefID];
+                                if (tmp.factSheetID && fsIndex.index.projects[tmp.factSheetID]) {
+                                   dependentProject = fsIndex.index.projects[tmp.factSheetID];
                                    resources = dependentProject.projectHasResources;
                                    for (var k = 0; k < resources.length; k++) {
                                         if (resources[k].resourceID && fsIndex.index.resources[resources[k].resourceID]) {
