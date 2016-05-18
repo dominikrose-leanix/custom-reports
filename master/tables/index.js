@@ -50714,21 +50714,29 @@ var ReportProjectDependencies = (function() {
 
 
                 function link(cell, row) {
-                    return '<a href="' + that.reportSetup.baseUrl + '/services/' + row.id + '" target="_blank">' + cell + '</a>';
+                    if (row.projectID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.projectID + '" target="_blank">' + cell + '</a>';
+                    if (row.resourceID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/resources/' + row.resourceID + '" target="_blank">' + cell + '</a>';
+                    if (row.serviceID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/services/' + row.serviceID + '" target="_blank">' + cell + '</a>';
+                    return cell;
                 }
 
-                function linkBusinessCapability(cell, row) {
-                    if (row.businessCapabilityID)
-                        return '<a href="' + that.reportSetup.baseUrl + '/businessCapabilities/' + row.businessCapabilityID + '" target="_blank">' + cell + '</a>';
+                function linkDependentProject(cell, row) {
+                    if (row.dependentProjectID)
+                        return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.dependentProjectID + '" target="_blank">' + cell + '</a>';
+                    return cell;
                 }
 
                 ReactDOM.render(
                     React.createElement("div", null, 
                         React.createElement(BootstrapTable, {data: output, striped: true, hover: true, search: true, exportCSV: true}, 
                             React.createElement(TableHeaderColumn, {dataField: "id", isKey: true, hidden: true}, "ID"), 
-                            React.createElement(TableHeaderColumn, {dataField: "project", dataAlign: "left", dataSort: true, dataFormat: linkBusinessCapability, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Project"), 
-                            React.createElement(TableHeaderColumn, {dataField: "dependentProject", dataAlign: "left", dataSort: true, dataFormat: linkBusinessCapability, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Dependent Project"), 
-                            React.createElement(TableHeaderColumn, {dataField: "resource", dataAlign: "left", dataSort: true, dataFormat: linkBusinessCapability, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component")
+                            React.createElement(TableHeaderColumn, {dataField: "project", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Project"), 
+                            React.createElement(TableHeaderColumn, {dataField: "dependentProject", dataAlign: "left", dataSort: true, dataFormat: linkDependentProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Dependent Project"), 
+                            React.createElement(TableHeaderColumn, {dataField: "resource", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component"), 
+                            React.createElement(TableHeaderColumn, {dataField: "service", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component")
                            )
                     ),
                     document.getElementById("app")
