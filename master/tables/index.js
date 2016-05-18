@@ -50752,7 +50752,7 @@ var ReportProjectDependencies = (function() {
             var report = new ReportApplicationFunctionalFit(reportSetup);
             break;
         case 'project-dependencies':
-            var report = new ReportProjectDependencies(reportSetup);
+            var report = new ReportProjectDependencies(reportSetup, 'Separation Object');
             break;
         case 'process-spend':
             var report = new ReportProcessSpend(reportSetup);
