@@ -21,13 +21,11 @@ var ReportApplicationFunctionalFit = (function() {
                 var list = fsIndex.getSortedList('projects');
 
                 var output = [];
-                var weights = {};
                 for (var i = 0; i < list.length; i++) {
                     if (!that.tagFilter || list[i].tags.indexOf(that.tagFilter) != -1)  {
 
                         var dependentProjects = list[i].factSheetHasPredecessors;
 
-                        var  = [];
                         for (var j = 0; z < dependentProjects.length; j++) {
                             var tmp = dependentProjects[j];
                             if (tmp) {
@@ -42,11 +40,13 @@ var ReportApplicationFunctionalFit = (function() {
                                                 dependentProjectId : tmp.ID,
                                                 resource : resources[k].fullName,
                                                 resourceID : resources[k].ID,
-                                            }
+                                            });
                                         }
                                     }
                                 }
                             }
+                        }
+                    }
                 }
 
 
