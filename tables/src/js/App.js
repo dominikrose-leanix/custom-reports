@@ -13,7 +13,7 @@
             var report = new ReportApplicationFunctionalFit(reportSetup);
             break;
         case 'project-dependencies':
-            var report = new ReportProjectDependencies(reportSetup, 'Separation Object');
+            var report = new ReportProjectDependencies(reportSetup, 'SO Measure');
             break;
         case 'process-spend':
             var report = new ReportProcessSpend(reportSetup);
