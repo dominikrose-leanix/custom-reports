@@ -50691,17 +50691,18 @@ var ReportProjectDependencies = (function() {
                             var tmp = dependentProjects[j];
                             if (tmp) {
                                 if (tmp.factSheetRefID && fsIndex.index.projects[tmp.factSheetRefID]) {
-                                   resources = fsIndex.index.projects[tmp.factSheetRefID].projectHasResources;
+                                   dependentProject = fsIndex.index.projects[tmp.factSheetRefID];
+                                   resources = dependentProject.projectHasResources;
                                    for (var k = 0; k < resources.length; k++) {
                                         if (resources[k].resourceID && fsIndex.index.resources[resources[k].resourceID]) {
                                             resource = fsIndex.index.resources[resources[k].resourceID];
                                             output.push({
-                                                project : list[i].fullName,
+                                                project : list[i].displayName,
                                                 projectId : list[i].ID,
-                                                dependentProject : tmp.fullName,
-                                                dependentProjectId : tmp.ID,
-                                                resource : resources[k].fullName,
-                                                resourceID : resources[k].ID,
+                                                dependentProject : dependentProject.displayName,
+                                                dependentProjectId : dependentProject.ID,
+                                                resource : resource.fullName,
+                                                resourceID : resource.ID,
                                             });
                                         }
                                     }
