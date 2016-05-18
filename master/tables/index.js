@@ -50706,6 +50706,20 @@ var ReportProjectDependencies = (function() {
                                             });
                                         }
                                     }
+                                    services = dependentProject.projectHasServices;
+                                    for (var k = 0; k < services.length; k++) {
+                                        if (services[k].serviceID && fsIndex.index.services[services[k].serviceID]) {
+                                            service = fsIndex.index.services[services[k].serviceID];
+                                            output.push({
+                                                project : list[i].displayName,
+                                                projectId : list[i].ID,
+                                                dependentProject : dependentProject.displayName,
+                                                dependentProjectID : dependentProject.ID,
+                                                service : service.fullName,
+                                                serviceID : service.ID,
+                                            });
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -50713,14 +50727,19 @@ var ReportProjectDependencies = (function() {
                 }
 
 
-                function link(cell, row) {
+                function linkProject(cell, row) {
                     if (row.projectID)
                         return '<a href="' + that.reportSetup.baseUrl + '/projects/' + row.projectID + '" target="_blank">' + cell + '</a>';
+                }
+
+                function linkResource(cell, row) {
                     if (row.resourceID)
                         return '<a href="' + that.reportSetup.baseUrl + '/resources/' + row.resourceID + '" target="_blank">' + cell + '</a>';
+                }
+                
+                function linkService(cell, row) {
                     if (row.serviceID)
                         return '<a href="' + that.reportSetup.baseUrl + '/services/' + row.serviceID + '" target="_blank">' + cell + '</a>';
-                    return cell;
                 }
 
                 function linkDependentProject(cell, row) {
@@ -50733,10 +50752,10 @@ var ReportProjectDependencies = (function() {
                     React.createElement("div", null, 
                         React.createElement(BootstrapTable, {data: output, striped: true, hover: true, search: true, exportCSV: true}, 
                             React.createElement(TableHeaderColumn, {dataField: "id", isKey: true, hidden: true}, "ID"), 
-                            React.createElement(TableHeaderColumn, {dataField: "project", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Project"), 
+                            React.createElement(TableHeaderColumn, {dataField: "project", dataAlign: "left", dataSort: true, dataFormat: linkProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Project"), 
                             React.createElement(TableHeaderColumn, {dataField: "dependentProject", dataAlign: "left", dataSort: true, dataFormat: linkDependentProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Dependent Project"), 
-                            React.createElement(TableHeaderColumn, {dataField: "resource", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component"), 
-                            React.createElement(TableHeaderColumn, {dataField: "service", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component")
+                            React.createElement(TableHeaderColumn, {dataField: "resource", dataAlign: "left", dataSort: true, dataFormat: linkResource, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component"), 
+                            React.createElement(TableHeaderColumn, {dataField: "service", dataAlign: "left", dataSort: true, dataFormat: linkService, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component")
                            )
                     ),
                     document.getElementById("app")
