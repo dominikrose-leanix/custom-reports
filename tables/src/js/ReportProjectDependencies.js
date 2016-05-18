@@ -26,7 +26,7 @@ var ReportProjectDependencies = (function() {
 
                         var dependentProjects = list[i].factSheetHasPredecessors;
 
-                        for (var j = 0; z < dependentProjects.length; j++) {
+                        for (var j = 0; j < dependentProjects.length; j++) {
                             var tmp = dependentProjects[j];
                             if (tmp) {
                                 if (tmp.projectID && fsIndex.index.projects[tmp.projectID]) {
