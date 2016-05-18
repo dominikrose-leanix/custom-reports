@@ -29,8 +29,8 @@ var ReportProjectDependencies = (function() {
                         for (var j = 0; j < dependentProjects.length; j++) {
                             var tmp = dependentProjects[j];
                             if (tmp) {
-                                if (tmp.factSheetRefID && fsIndex.index.projects[tmp.factSheetRefID]) {
-                                   dependentProject = fsIndex.index.projects[tmp.factSheetRefID];
+                                if (tmp.factSheetRefID && fsIndex.index.projects[tmp.factSheetID]) {
+                                   dependentProject = fsIndex.index.projects[tmp.factSheetID];
                                    resources = dependentProject.projectHasResources;
                                    for (var k = 0; k < resources.length; k++) {
                                         if (resources[k].resourceID && fsIndex.index.resources[resources[k].resourceID]) {
@@ -39,7 +39,7 @@ var ReportProjectDependencies = (function() {
                                                 project : list[i].displayName,
                                                 projectId : list[i].ID,
                                                 dependentProject : dependentProject.displayName,
-                                                dependentProjectId : dependentProject.ID,
+                                                dependentProjectID : dependentProject.ID,
                                                 resource : resource.fullName,
                                                 resourceID : resource.ID,
                                             });
