@@ -50691,9 +50691,11 @@ var ReportProjectDependencies = (function() {
                             var tmp = dependentProjects[j];
                             if (tmp) {
                                 if (tmp.factSheetRefID && fsIndex.index.projects[tmp.factSheetRefID]) {
-                                    resources = fsIndex.index.projects[tmp.factSheetRefID].projectHasResources;
-                                    for (var k = 0; k < resources.length; k++) {
+                                   projectHasResources = fsIndex.index.projects[tmp.factSheetRefID].projectHasResources;
+                                   resources = fsIndex.index.res[tmp.factSheetRefID].projectHasResources;
+                                   for (var k = 0; k < resources.length; k++) {
                                         if (resources[k].resourceID && fsIndex.index.resources[resources[k].resourceID]) {
+                                            resource = fsIndex.index.resources[resources[k].resourceID];
                                             output.push({
                                                 project : list[i].fullName,
                                                 projectId : list[i].ID,
