@@ -50698,7 +50698,7 @@ var ReportProjectDependencies = (function() {
                                             resource = fsIndex.index.resources[resources[k].resourceID];
                                             output.push({
                                                 project : list[i].displayName,
-                                                projectId : list[i].ID,
+                                                projectID : list[i].ID,
                                                 dependentProject : dependentProject.displayName,
                                                 dependentProjectID : dependentProject.ID,
                                                 resource : resource.fullName,
@@ -50712,7 +50712,7 @@ var ReportProjectDependencies = (function() {
                                             service = fsIndex.index.services[services[k].serviceID];
                                             output.push({
                                                 project : list[i].displayName,
-                                                projectId : list[i].ID,
+                                                projectID : list[i].ID,
                                                 dependentProject : dependentProject.displayName,
                                                 dependentProjectID : dependentProject.ID,
                                                 service : service.fullName,
