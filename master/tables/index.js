@@ -50706,7 +50706,7 @@ var ReportProjectDependencies = (function() {
                                             });
                                         }
                                     }
-                                    services = dependentProject.projectHasServices;
+                                    services = dependentProject.serviceHasProjects;
                                     for (var k = 0; k < services.length; k++) {
                                         if (services[k].serviceID && fsIndex.index.services[services[k].serviceID]) {
                                             service = fsIndex.index.services[services[k].serviceID];
@@ -50755,7 +50755,7 @@ var ReportProjectDependencies = (function() {
                             React.createElement(TableHeaderColumn, {dataField: "project", dataAlign: "left", dataSort: true, dataFormat: linkProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Project"), 
                             React.createElement(TableHeaderColumn, {dataField: "dependentProject", dataAlign: "left", dataSort: true, dataFormat: linkDependentProject, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Dependent Project"), 
                             React.createElement(TableHeaderColumn, {dataField: "resource", dataAlign: "left", dataSort: true, dataFormat: linkResource, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component"), 
-                            React.createElement(TableHeaderColumn, {dataField: "service", dataAlign: "left", dataSort: true, dataFormat: linkService, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "IT Component")
+                            React.createElement(TableHeaderColumn, {dataField: "service", dataAlign: "left", dataSort: true, dataFormat: linkService, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Application")
                            )
                     ),
                     document.getElementById("app")
