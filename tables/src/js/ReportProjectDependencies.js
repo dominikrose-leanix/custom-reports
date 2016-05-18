@@ -45,7 +45,7 @@ var ReportProjectDependencies = (function() {
                                             });
                                         }
                                     }
-                                    services = dependentProject.projectHasServices;
+                                    services = dependentProject.serviceHasProjects;
                                     for (var k = 0; k < services.length; k++) {
                                         if (services[k].serviceID && fsIndex.index.services[services[k].serviceID]) {
                                             service = fsIndex.index.services[services[k].serviceID];
@@ -94,7 +94,7 @@ var ReportProjectDependencies = (function() {
                             <TableHeaderColumn dataField="project" dataAlign="left" dataSort={true} dataFormat={linkProject} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Project</TableHeaderColumn>
                             <TableHeaderColumn dataField="dependentProject" dataAlign="left" dataSort={true} dataFormat={linkDependentProject} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Dependent Project</TableHeaderColumn>
                             <TableHeaderColumn dataField="resource" dataAlign="left" dataSort={true} dataFormat={linkResource} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
-                            <TableHeaderColumn dataField="service" dataAlign="left" dataSort={true} dataFormat={linkService} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>IT Component</TableHeaderColumn>
+                            <TableHeaderColumn dataField="service" dataAlign="left" dataSort={true} dataFormat={linkService} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Application</TableHeaderColumn>
                            </BootstrapTable>
                     </div>,
                     document.getElementById("app")
