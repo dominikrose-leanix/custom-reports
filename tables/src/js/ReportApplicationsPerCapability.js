@@ -138,7 +138,7 @@ var ReportApplicationsPerCapability = (function() {
                 ReactDOM.render(
                     <div>
                         <BootstrapTable data={output} striped={true} hover={true} search={true} exportCSV={true} options={options}>
-                            <TableHeaderColumn dataField="name" isKey={true} dataAlign="left" dataSort={true} dataFormat={link}>Business Capability</TableHeaderColumn>
+                            <TableHeaderColumn dataField="name" isKey={true} dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Business Capability</TableHeaderColumn>
                             <TableHeaderColumn dataField="count" width="200" dataSort={true} dataFormat={criticalityFormat}># of apps</TableHeaderColumn>
                             <TableHeaderColumn dataField="text" width="200" dataSort={true} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Average criticality</TableHeaderColumn>
                         </BootstrapTable>

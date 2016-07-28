@@ -167,7 +167,7 @@ var ReportApplicationLifecycle = (function() {
 
                 ReactDOM.render(
                     <div>
-                        <BootstrapTable data={output} striped={true} hover={true} search={true} exportCSV={true}>
+                        <BootstrapTable data={output} striped={true} hover={true} search={false} exportCSV={true}>
                             <TableHeaderColumn dataField="id" isKey={true} hidden={true}>ID</TableHeaderColumn>
                             <TableHeaderColumn dataField="market" width="80" dataAlign="left" dataSort={true} filter={{type: "SelectFilter", options: markets}}>Market</TableHeaderColumn>
                             <TableHeaderColumn dataField="name" dataAlign="left" dataSort={true} dataFormat={link} filter={{type: "TextFilter", placeholder: "Please enter a value"}}>Application Name</TableHeaderColumn>
