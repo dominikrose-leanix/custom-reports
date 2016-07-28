@@ -39,9 +39,16 @@
         case 'data-quality-services':
             var report = new ReportDataQualityServices(reportSetup);
             break;
+        case 'responsibilities':
+            var report = new ReportResponsibilities(reportSetup);
+            break;
         case 'capability-spend':
-        default:
             var report = new ReportCapabilitySpend(reportSetup);
+            break;
+        case 'apps-per-capability':
+            var report = new ReportApplicationsPerCapability(reportSetup);
+            break;
+        default:
     }
 
     if (report)

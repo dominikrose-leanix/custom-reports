@@ -47,7 +47,7 @@ var ReportCapabilitySpend = (function() {
                     ids.forEach(function(id) {
                         if (fsIndex.index.businessCapabilities[id]) {
                             fsIndex.index.businessCapabilities[id].stats.services.push(service.ID);
-                            fsIndex.index.businessCapabilities[id].stats.serviceCost = serviceCost;
+                            fsIndex.index.businessCapabilities[id].stats.serviceCost += serviceCost;
                         } else {
                             console.warn('Unable to find item with id = ' + id);
                         }
