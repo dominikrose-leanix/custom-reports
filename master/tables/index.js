@@ -50558,7 +50558,7 @@ var ReportApplicationLifecycle = (function() {
 
                 ReactDOM.render(
                     React.createElement("div", null, 
-                        React.createElement(BootstrapTable, {data: output, striped: true, hover: true, search: true, exportCSV: true}, 
+                        React.createElement(BootstrapTable, {data: output, striped: true, hover: true, search: false, exportCSV: true}, 
                             React.createElement(TableHeaderColumn, {dataField: "id", isKey: true, hidden: true}, "ID"), 
                             React.createElement(TableHeaderColumn, {dataField: "market", width: "80", dataAlign: "left", dataSort: true, filter: {type: "SelectFilter", options: markets}}, "Market"), 
                             React.createElement(TableHeaderColumn, {dataField: "name", dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Application Name"), 
@@ -51041,7 +51041,7 @@ var ReportApplicationsPerCapability = (function() {
                 ReactDOM.render(
                     React.createElement("div", null, 
                         React.createElement(BootstrapTable, {data: output, striped: true, hover: true, search: true, exportCSV: true, options: options}, 
-                            React.createElement(TableHeaderColumn, {dataField: "name", isKey: true, dataAlign: "left", dataSort: true, dataFormat: link}, "Business Capability"), 
+                            React.createElement(TableHeaderColumn, {dataField: "name", isKey: true, dataAlign: "left", dataSort: true, dataFormat: link, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Business Capability"), 
                             React.createElement(TableHeaderColumn, {dataField: "count", width: "200", dataSort: true, dataFormat: criticalityFormat}, "# of apps"), 
                             React.createElement(TableHeaderColumn, {dataField: "text", width: "200", dataSort: true, filter: {type: "TextFilter", placeholder: "Please enter a value"}}, "Average criticality")
                         )
